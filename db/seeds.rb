@@ -5,3 +5,10 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+if Person.count == 0
+  data = JSON.parse(File.read('db/seed_data/data.json'))
+  data.each do |record|
+    Person.create({name: record['name'], detail_attributes: record['info']})
+  end
+end
