@@ -1,0 +1,40 @@
+<div class='container-fluid'>
+  <div class='row'>
+    <div class='col-lg-8 mx-auto'>
+      <div class='card mt-2'>
+        <div class='card-body' style="min-height:750px;" >
+          <div class='row'>
+            <div class='col-lg-4'>
+              <div class='card mt-2'>
+                <div class='card-header text-center'>
+                  <h5>All Record</h5>
+                </div>
+                <div class='card-body' style="min-height:700px;" id="persons_list">
+                  <div class='text-end'>
+                    <%= link_to "Create new record", new_person_path, data: {turbo_stream: true}, class: 'me-2' %>
+                  </div>
+                  <div class='text-end'>
+                    <%= link_to "Refresh", root_path, class: "me-2" %>
+                  </div>
+                  <% @persons.each do |person| %>
+                    <%= render 'list_item', person: person %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+            <div class='col-lg-8'>
+              <div class='card mt-2'>
+                <div class='card-header text-center'>
+                  <h5>Detail</h5>
+                </div>
+                <div class='card-body' style="min-height:700px;" >
+                  <%= render 'detail', person: @persons.first %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

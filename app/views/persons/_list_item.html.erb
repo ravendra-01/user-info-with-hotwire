@@ -1,0 +1,3 @@
+<div class="list-group mt-2" id='person_details_<%= person.id %>' >
+  <%= link_to "#{person.name}", person_path(person), data: {turbo_stream: true}, class:'list-group-item list-group-item-action list-group-item-light' %>
+</div>

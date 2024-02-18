@@ -1,0 +1,56 @@
+<div class="row mt-4 md-4", id='new_person_details'>
+  <%= form_with model: person, url: persons_path do |form| %>
+    <div class='card shadow'>
+      <div class='card-header text-center'>
+        <h5>Edit Person Details</h5>
+      </div>
+      <div class='card-body'>
+        <div class="row">
+          <% if person.errors.any? %>
+            <div class="error-area" style="color:red;">
+              <h3> <%= pluralize(person.errors.count, 'error') %> prohibited your details from being saved.</h3>
+              <ul>
+                <% person.errors.each do |error| %>
+                  <li><%= error.full_message %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+          <div class="col-lg-12">
+            <div class="form-group">
+              <label class="mb-1 mt-3  fw-bold">
+                Name
+                <span class="text-danger">*</span>
+              </label>
+              <%= form.text_field :name, class: "form-control" %>
+            </div>
+            <%= fields_for :detail_attributes do |detail_form| %>
+              <div class='form-group row mt-2'>
+                <div class='col-lg-6'>
+                  <%= detail_form.label :title, class: 'mb-1 fw-bold' %>
+                  <%= detail_form.text_field :title, class: 'form-control' %>
+                </div>
+                <div class='col-lg-6'>
+                  <%= detail_form.label :age, class: 'mb-1 fw-bold' %>
+                  <%= detail_form.text_field :age, class: 'form-control' %>
+                </div>
+                <div class='col-lg-12 mt-2'>
+                  <%= detail_form.label :phone, class: 'mb-1 fw-bold' %>
+                  <%= detail_form.text_field :phone, class: 'form-control' %>
+                </div>
+                <div class='col-lg-12 mt-2'>
+                  <label class="mb-1 mt-2  fw-bold">
+                    Email
+                    <span class="text-danger">*</span>
+                  </label>
+                  <%= detail_form.text_field :email, class: 'form-control' %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <%= form.submit "Save Changes", class: "btn btn-primary mt-4" %>
+      <%= link_to "Cancel", root_path, class: "btn btn-danger mt-4" %>
+    </div>
+  <% end %>
+</div>
