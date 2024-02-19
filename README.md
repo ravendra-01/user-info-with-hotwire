@@ -15,7 +15,7 @@
 ##### 1. Check out the repository
 
 ```bash
-git clone https://github.com/ravendra-01/todo-list-app.git
+git clone [https://github.com/ravendra-01/todo-list-app.git](https://github.com/ravendra-01/user-info-with-hotwire.git)
 ```
 
 ##### 3. Create and setup the database
