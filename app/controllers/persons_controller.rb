@@ -13,6 +13,7 @@ class PersonsController < ApplicationController
  
   def new
     @person = Person.new
+    @person.build_detail
     respond_to do |format|
       format.turbo_stream { render turbo_stream: turbo_stream.replace('person_details', partial: 'persons/new', locals: {person: @person}) }
     end
@@ -24,15 +25,8 @@ class PersonsController < ApplicationController
     end
   end
 
-  # POST /programs or /programs.json
   def create
-    @person = Person.create(person_params)
-    @detail = @person.create_detail(
-      title: params[:detail_attributes][:title],
-      age: params[:detail_attributes][:age],
-      email: params[:detail_attributes][:email],
-      phone: params[:detail_attributes][:phone]
-    )
+    @person = Person.new(person_params)
     respond_to do |format|
       if @person.save
         format.turbo_stream do
@@ -40,8 +34,9 @@ class PersonsController < ApplicationController
                                turbo_stream.replace('new_person_details', partial: 'persons/detail', locals: {person: @person})
         end
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @person.errors, status: :unprocessable_entity }
+        format.turbo_stream do
+          render turbo_stream: turbo_stream.replace('new_person_details', partial: 'persons/new', locals: {person: @person})
+        end
       end
     end
   end

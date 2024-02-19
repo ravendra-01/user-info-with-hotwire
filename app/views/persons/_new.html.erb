@@ -1,4 +1,4 @@
-<div class="row mt-4 md-4", id='new_person_details'>
+<div class="row mt-4 md-4" id='new_person_details'>
   <%= form_with model: person, url: persons_path do |form| %>
     <div class='card shadow'>
       <div class='card-header text-center'>
@@ -24,7 +24,7 @@
               </label>
               <%= form.text_field :name, class: "form-control" %>
             </div>
-            <%= fields_for :detail_attributes do |detail_form| %>
+            <%= form.fields_for :detail do |detail_form| %>
               <div class='form-group row mt-2'>
                 <div class='col-lg-6'>
                   <%= detail_form.label :title, class: 'mb-1 fw-bold' %>
