@@ -46,7 +46,7 @@ And now you can visit the site with the URL http://localhost:3000
 
 #### Features
 
-Implemented CRUD [api](https://api.postman.com/collections/18613790-b18019d8-67e3-4350-add1-e4917fd67acc?access_key=PMAT-01HQ075FBT05JGJ7CCD3QPAK85) for people controller.
+Implemented CRUD [api](https://api.postman.com/collections/18613790-b18019d8-67e3-4350-add1-e4917fd67acc?access_key=PMAT-01HQ075FBT05JGJ7CCD3QPAK85) for people controller
 
 - Screenshots
 
