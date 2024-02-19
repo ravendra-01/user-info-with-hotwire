@@ -18,7 +18,7 @@
 git clone https://github.com/ravendra-01/user-info-with-hotwire.git
 ```
 
-##### 3. Create and setup the database
+##### 2. Create and setup the database
 
 Run the following commands to install gems.
 
@@ -26,7 +26,7 @@ Run the following commands to install gems.
 bundle install
 ```
 
-##### 2. Create and setup the database
+##### 3. Create and setup the database
 
 Run the following commands to create and setup the database.
 
